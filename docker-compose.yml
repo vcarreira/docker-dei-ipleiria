@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  pa-dev:
+    container_name: pa-dev
+    build:
+      context: ./docker
+      dockerfile: pa.dockerfile
+    expose:
+      - 1234
+    volumes:
+      - ./:/home/pa
+    networks:
+      - pa-network
+
+networks:
+  pa-network:
+    driver: bridge

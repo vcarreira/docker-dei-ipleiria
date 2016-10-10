@@ -34,6 +34,9 @@ RUN apt-get update -y && \
     unzip \
     wget \
     tmux \
+    ltrace \
+    cppcheck \
+    imagemagick \
     curl && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash pa

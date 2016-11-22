@@ -1,4 +1,5 @@
 # docker-cdev
+password: admin
 
 ## tmux shortcuts (on MAC)
 

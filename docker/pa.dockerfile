@@ -7,6 +7,7 @@ WORKDIR /tmp
 RUN mkdir /opt/pa
 
 COPY EmptyProject-Templatev1.11.zip /opt/pa
+COPY EmptyProject-client-server-template.v1.zip /opt/pa
 COPY new-app.sh /usr/local/bin
 COPY new-client-server.sh /usr/local/bin
 COPY tmux-help.txt /usr/share/doc
@@ -41,6 +42,8 @@ RUN apt-get update -y && \
     ltrace \
     cppcheck \
     imagemagick \
+    net-tools \
+    lsof \
     curl && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash pa

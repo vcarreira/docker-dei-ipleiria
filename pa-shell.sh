@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose run --rm pa-dev
+docker-compose run --name pa-cdev --rm cdev

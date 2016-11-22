@@ -1,8 +1,9 @@
 version: '2'
 
 services:
-  pa-dev:
-    container_name: pa-dev
+  cdev:
+    container_name: cdev
+    image: pa
     build:
       context: ./docker
       dockerfile: pa.dockerfile

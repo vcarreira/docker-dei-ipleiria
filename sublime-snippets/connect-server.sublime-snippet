@@ -1,0 +1,34 @@
+<snippet>
+    <content><![CDATA[
+struct sockaddr_in get_server_addr(const char *ip, unsigned short port);
+int connect_to_server(const char *ip, unsigned short port);
+
+int connect_to_server(const char *ip, unsigned short port) {
+    int fd = socket(AF_INET, SOCK_STREAM, 0);
+    if (fd == -1) {
+        WARNING("socket() failed");
+        return -1;
+    }
+    struct sockaddr_in addr = get_server_addr(ip, port);
+    if (connect(fd, (struct sockaddr*)&addr, sizeof(struct sockaddr_in)) == -1) {
+        WARNING("connect() failed");
+        close(fd);
+        return -1;
+    }
+
+    return fd;
+}
+struct sockaddr_in get_server_addr(const char *ip, unsigned short port) {
+    struct sockaddr_in addr;
+    memset(&addr, 0, sizeof(struct sockaddr_in));
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port);
+    assert(inet_pton(AF_INET, ip, &addr.sin_addr) > 0);
+
+    return addr;
+}
+]]></content>
+    <tabTrigger>connect-server</tabTrigger>
+    <description>Connects to a TCP server</description>
+    <scope>source.c++</scope>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+char ip[20];
+printf("ADDR: %s:%hu\n", inet_ntop(AF_INET, &${1:addr}.sin_addr, ip, sizeof(ip)), ntohs(${1:addr}.sin_port));
+]]></content>
+    <tabTrigger>dump-addr</tabTrigger>
+    <description>Dumps a IPv4 address</description>
+    <scope>source.c++</scope>
+</snippet>

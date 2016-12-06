@@ -1,0 +1,39 @@
+<snippet>
+    <content><![CDATA[
+struct sockaddr_in get_addr_for_all_interfaces(unsigned short port);
+int bind_tcp_server(unsigned short, int backlog);
+
+int bind_tcp_server(unsigned short port, int backlog) {
+    int fd = socket(AF_INET, SOCK_STREAM, 0);
+    if (fd == -1) {
+        WARNING("socket() failed");
+        return -1;
+    }
+    struct sockaddr_in addr = get_addr_for_all_interfaces(port);
+    if (bind(fd, (struct sockaddr*)&addr, sizeof(struct sockaddr_in)) == -1) {
+        WARNING("bind() failed");
+        close(fd);
+        return -1;
+    }
+
+    if (listen(fd, backlog) == -1) {
+        WARNING("listen() failed");
+        close(fd);
+        return -1;
+    }
+    return fd;
+}
+struct sockaddr_in get_addr_for_all_interfaces(unsigned short port) {
+    struct sockaddr_in addr;
+    memset(&addr, 0, sizeof(struct sockaddr_in));
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port);
+    addr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    return addr;
+}
+]]></content>
+    <tabTrigger>tcp-server</tabTrigger>
+    <description>Binds a TCP server on all network interfaces available</description>
+    <scope>source.c++</scope>
+</snippet>

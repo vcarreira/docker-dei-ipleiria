@@ -1,11 +1,11 @@
 @echo off
 set IMAGE_NAME=
 
-for /f %%i in ('docker images -q pa-cdev') do set IMAGE_NAME=%%i
+for /f %%i in ('docker images -q so-cdev') do set IMAGE_NAME=%%i
 
 if "%IMAGE_NAME%" == "" (
     if exist docker-compose.yml (
-        docker-compose build pa-cdev
+        docker-compose build so-cdev
     ) else (
         echo docker-compose.yml file is missing!!
         echo [PT] O ficheiro docker-compose.yml nao foi encontrado!!
@@ -26,4 +26,4 @@ echo.
 echo Sudo password: admin
 echo.
 
-docker run -it --name pa-cdev -v "%cd%":/home/pa --rm pa-cdev
+docker run -it --name so-cdev -v "%cd%":/home/so --rm so-cdev

@@ -12,7 +12,7 @@ services:
     volumes:
       - ./:/home/pa
     networks:
-      - cdev-network
+      - docker-dei-network
 
   so-cdev:
     container_name: so
@@ -23,8 +23,19 @@ services:
     volumes:
       - ./:/home/so
     networks:
-      - cdev-network
+      - docker-dei-network
+
+  ainet-webserver:
+    container_name: ainet
+    image: ainet-webserver
+    build:
+      context: ./docker
+      dockerfile: ainet.dockerfile
+    volumes:
+      - ./docker/conf:/etc/nginx/sites-enabled
+    networks:
+      - docker-dei-network
 
 networks:
-  cdev-network:
+  docker-dei-network:
     driver: bridge

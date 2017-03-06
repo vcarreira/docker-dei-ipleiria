@@ -1,9 +1,9 @@
 version: '2'
 
 services:
-  cdev:
-    container_name: cdev
-    image: pa
+  pa-cdev:
+    container_name: pa
+    image: pa-cdev
     build:
       context: ./docker
       dockerfile: pa.dockerfile
@@ -12,8 +12,19 @@ services:
     volumes:
       - ./:/home/pa
     networks:
-      - pa-network
+      - cdev-network
+
+  so-cdev:
+    container_name: so
+    image: so-cdev
+    build:
+      context: ./docker
+      dockerfile: so.dockerfile
+    volumes:
+      - ./:/home/so
+    networks:
+      - cdev-network
 
 networks:
-  pa-network:
+  cdev-network:
     driver: bridge

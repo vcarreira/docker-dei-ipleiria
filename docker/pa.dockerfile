@@ -59,4 +59,4 @@ WORKDIR /home/pa
 
 VOLUME ["/home/pa"]
 
-CMD ["/bin/bash"]
+CMD ["/bin/bash", "--rcfile", "/etc/skel/.bashrc"]

@@ -56,4 +56,4 @@ WORKDIR /home/so
 
 VOLUME ["/home/so"]
 
-CMD ["/bin/bash"]
+CMD ["/bin/bash", "--rcfile", "/etc/skel/.bashrc"]

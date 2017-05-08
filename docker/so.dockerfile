@@ -39,6 +39,8 @@ RUN apt-get update -y && \
     ltrace \
     netcat \
     cppcheck \
+    indent \
+    pmccabe \
     imagemagick \
     net-tools \
     lsof \

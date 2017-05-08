@@ -6,7 +6,7 @@ WORKDIR /tmp
 
 RUN mkdir /opt/so
 
-COPY EmptyProject-Templatev1.11.zip /opt/so
+COPY EmptyProject-Templatev2.0b.zip /opt/so
 COPY new-app.sh /usr/local/bin
 COPY tmux-help.txt /usr/share/doc
 

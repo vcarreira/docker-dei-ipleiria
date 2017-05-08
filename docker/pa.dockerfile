@@ -6,7 +6,7 @@ WORKDIR /tmp
 
 RUN mkdir /opt/pa
 
-COPY EmptyProject-Templatev1.11.zip /opt/pa
+COPY EmptyProject-Templatev2.0b.zip /opt/pa
 COPY EmptyProject-client-server-template.v1.zip /opt/pa
 COPY new-app.sh /usr/local/bin
 COPY new-client-server.sh /usr/local/bin

@@ -4,9 +4,9 @@ MAINTAINER "Vitor Carreira" <vitor.carreira@gmail.com>
 
 WORKDIR /tmp
 
-RUN mkdir /opt/so
+RUN mkdir /opt/templates
 
-COPY EmptyProject-Templatev2.0b.zip /opt/so
+COPY EmptyProject-Templatev2.0b.zip /opt/templates
 COPY new-app.sh /usr/local/bin
 COPY tmux-help.txt /usr/share/doc
 

@@ -4,10 +4,10 @@ MAINTAINER "Vitor Carreira" <vitor.carreira@gmail.com>
 
 WORKDIR /tmp
 
-RUN mkdir /opt/pa
+RUN mkdir /opt/templates
 
-COPY EmptyProject-Templatev2.0b.zip /opt/pa
-COPY EmptyProject-client-server-template.v1.zip /opt/pa
+COPY EmptyProject-Templatev2.0b.zip /opt/templates
+COPY EmptyProject-client-server-template.v1.zip /opt/templates
 COPY new-app.sh /usr/local/bin
 COPY new-client-server.sh /usr/local/bin
 COPY tmux-help.txt /usr/share/doc

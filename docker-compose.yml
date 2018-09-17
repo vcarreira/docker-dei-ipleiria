@@ -36,6 +36,17 @@ services:
     networks:
       - docker-dei-network
 
+  ainet-laravel:
+    container_name: laravel
+    image: ainet-laravel
+    build:
+      context: ./docker
+      dockerfile: laravel.dockerfile
+    volumes:
+      - ./docker/conf:/etc/nginx/sites-enabled
+    networks:
+      - docker-dei-network
+
 networks:
   docker-dei-network:
     driver: bridge

@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 MAINTAINER "Vitor Carreira" <vitor.carreira@gmail.com>
 

@@ -1,7 +1,12 @@
 #!/bin/bash
-if [ "$(docker images -q ainet-webserver)" == "" ]; then
+if [ "$1" == "" ]; then
+    echo "Usage: $0 rootfolder";
+    exit;
+fi
+
+if [ "$(docker images -q ainet-laravel)" == "" ]; then
     if [ -f docker-compose.yml ]; then
-        docker-compose build ainet-webserver
+        docker-compose build ainet-laravel
     else
         echo "docker-compose.yml file is missing!!"
         echo "[PT] O ficheiro docker-compose.yml nao foi encontrado!!"
@@ -19,4 +24,6 @@ if [ -f docker-compose.yml ]; then
     echo
 fi
 
-docker run -d --name ainet-webserver -p 8888:80 -v "$(pwd)":/var/www ainet-webserver && echo "NGINX server listening on port 8888"
+FOLDER="$(pwd)/$1"
+PORT=80
+docker run -d --name ainet-laravel -p $PORT:80 -v $FOLDER:/var/www ainet-laravel && echo "NGINX server listening on port $PORT"

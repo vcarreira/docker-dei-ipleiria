@@ -17,6 +17,9 @@ RUN echo 'alias tmux-help="cat /usr/share/doc/tmux-help.txt"' >> /etc/bash.bashr
 
 RUN echo "deb http://us.archive.ubuntu.com/ubuntu bionic main multiverse" >> /etc/apt/sources.list
 
+# Do not exclude man pages & other documentation
+RUN rm /etc/dpkg/dpkg.cfg.d/excludes
+
 RUN apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y \

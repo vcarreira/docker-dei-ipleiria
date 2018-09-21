@@ -1,8 +1,7 @@
 #!/bin/bash
-# todo: alterar a localizacao do ficheiro .zip
-# todo: chmod +x new-app.sh
-# todo: copiar o script para a pasta /usr/local/bin (sudo)
-unzip /opt/templates/EmptyProject-client-server-template.v2.zip
+# if no arguments are provided, template is extracted to the current folder
 if [ "$1" != "" ]; then
-    mv EmptyProject-client-server-template.v2 "$1"
+    unzip -j /opt/templates/EmptyProject-client-server-template.zip -d "$1"
+else
+    unzip -j /opt/templates/EmptyProject-client-server-template.zip
 fi

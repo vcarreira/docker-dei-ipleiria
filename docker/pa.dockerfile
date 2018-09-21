@@ -6,8 +6,8 @@ WORKDIR /tmp
 
 RUN mkdir /opt/templates
 
-COPY EmptyProject-Templatev3.03.zip /opt/templates
-COPY EmptyProject-client-server-template.v2.zip /opt/templates
+COPY EmptyProject-Template.zip /opt/templates
+COPY EmptyProject-client-server-template.zip /opt/templates
 COPY new-app.sh /usr/local/bin
 COPY new-client-server.sh /usr/local/bin
 COPY tmux-help.txt /usr/share/doc

@@ -19,4 +19,8 @@ fi
 echo
 echo "Sudo password: admin"
 
-docker run -it --name pa-cdev -v "$(pwd)":/home/pa --rm pa-cdev
+if [ "$(docker ps -q --filter name=pa-cdev)" == "" ]; then
+    docker run -it --name pa-cdev -v "$(pwd)":/home/pa --rm pa-cdev
+else
+    docker exec -it pa-cdev /bin/bash
+fi

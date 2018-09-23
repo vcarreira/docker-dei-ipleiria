@@ -26,4 +26,10 @@ echo.
 echo Sudo password: admin
 echo.
 
-docker run -it --name pa-cdev -v "%cd%":/home/pa --rm pa-cdev
+set CONTAINER_NAME=
+for /f %%i in ('docker ps -q --filter name=pa-cdev') do set CONTAINER_NAME=%%i
+if "%CONTAINER_NAME%" == "" (
+    docker run -it --name pa-cdev -v "%cd%":/home/pa --rm pa-cdev
+) else (
+    docker exec -it pa-cdev /bin/bash
+)

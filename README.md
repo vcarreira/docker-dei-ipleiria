@@ -27,6 +27,9 @@ Em seguida é necessário copiar o script para uma pasta que esteja na ```PATH``
 Para utilizadores Windows, o processo é explicado no vídeo seguinte:
 [![Sistemas Operativos][video1thumb]][video1]
 
+## Programação Avançada
+
+Seguir o mesmo procedimento ao empregue para a secção *Sistemas Operativos* mas utilizar o script ```pa-shell.bat``` ou ```pa-shell.sh``` consoante o sistema operativo seja windows ou não.
 
 ## Aplicações para a Internet
 

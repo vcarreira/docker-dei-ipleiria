@@ -13,8 +13,8 @@ fi
 if [ -f docker-compose.yml ]; then
     echo
     echo
-    echo Copy this script to the folder you wish to serve as the root web page
-    echo [PT] Copie este script para a pasta que pretende servir como raiz do sitio
+    echo "Copy this script to the folder you wish to serve as the root web page"
+    echo "[PT] Copie este script para a pasta que pretende servir como raiz do sitio"
     echo
     echo
 fi

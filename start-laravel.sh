@@ -18,12 +18,12 @@ fi
 if [ -f docker-compose.yml ]; then
     echo
     echo
-    echo Copy this script to the folder you wish to serve as the root web page
-    echo [PT] Copie este script para a pasta que pretende servir como raiz do sitio
+    echo "Copy this script to the folder you wish to serve as the root web page"
+    echo "[PT] Copie este script para a pasta que pretende servir como raiz do sitio"
     echo
     echo
 fi
 
 FOLDER="$(pwd)/$1"
 PORT=80
-docker run -d --name ainet-laravel -p $PORT:80 -v $FOLDER:/var/www ainet-laravel && echo "NGINX server listening on port $PORT"
+docker run -d --name ainet-laravel -p "$PORT":80 -v "$FOLDER":/var/www ainet-laravel && echo "NGINX server listening on port $PORT"

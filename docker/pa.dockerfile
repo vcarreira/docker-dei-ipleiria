@@ -49,6 +49,7 @@ RUN apt-get update -y && \
     imagemagick \
     net-tools \
     lsof \
+    less \
     curl && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash pa
